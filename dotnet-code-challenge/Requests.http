@@ -1,0 +1,22 @@
+### Test of employee read (with nested employees loading correctly)
+GET http://localhost:8080/api/employee/reporting/16a596ae-edd3-4847-99fe-c4518e82c86f HTTP/1.1
+
+### Paul Reports
+GET http://localhost:8080/api/employee/reporting/b7839309-3348-463b-a7e3-5de1c168beb3 HTTP/1.1
+### Ringo Reports
+GET http://localhost:8080/api/employee/reporting/03aa1462-ffa9-4978-901b-7c001562cf6f HTTP/1.1
+### John employee read
+GET http://localhost:8080/api/employee/16a596ae-edd3-4847-99fe-c4518e82c86f HTTP/1.1
+
+### Get of Compensation for John
+GET http://localhost:8080/api/compensation/16a596ae-edd3-4847-99fe-c4518e82c86f HTTP/1.1
+
+### Create Compensation, for John
+POST http://localhost:8080/api/compensation HTTP/1.1
+Content-Type: application/json
+
+{
+    "EmployeeId": "16a596ae-edd3-4847-99fe-c4518e82c86f",
+    "Salary": 69.69,
+    "EffectiveDate": "2022-11-20"
+}
